@@ -10,7 +10,8 @@ st.title("Face Classification App")
 model = load_model("face-mobile.h5")
 
 # Get the label names from the subdirectory names under the "data" directory
-label_names = os.listdir("data")
+root_dir = os.getcwd()
+label_names = os.listdir(f"{root_dir}/data")
 label_names = sorted(label_names)
 print(label_names)
 # Function to preprocess the image

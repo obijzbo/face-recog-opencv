@@ -160,7 +160,7 @@ model = Sequential()
 model.add(base_model)
 model.add(GlobalAveragePooling2D())
 model.add(Dense(256, activation='relu'))
-model.add(Dense(5, activation='softmax'))  # Update the number of units to match the number of classes
+model.add(Dense(6, activation='softmax'))  # Update the number of units to match the number of classes
 
 # Compile the model
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
@@ -174,7 +174,7 @@ val_generator = val_datagen.flow_from_directory(val_dir, target_size=target_size
 
 # Train the model
 history = model.fit_generator(train_generator, steps_per_epoch=len(train_generator),
-                              epochs=32, validation_data=val_generator, validation_steps=len(val_generator))
+                              epochs=10, validation_data=val_generator, validation_steps=len(val_generator))
 
 # Save the model
 model.save('face-mobile.h5')
